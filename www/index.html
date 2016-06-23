@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title></title>
+
+
+    <!-- compiled css output -->
+        <link href="css/ionic.app.css" rel="stylesheet">
+
+        <!-- ionic/angularjs js -->
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>
+
+        <script type="text/javascript" src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+        
+        <!-- APP -->
+        <!-- Index -->
+        <script type="text/javascript" src="src/index.module.js"></script>
+        <script type="text/javascript" src="src/index.constants.js"></script>
+        <script type="text/javascript" src="src/index.config.js"></script>
+        <script type="text/javascript" src="src/index.routes.js"></script>
+        <script type="text/javascript" src="src/index.run.js"></script>
+
+        <!-- COMPONENTS -->        
+        <!-- Controllers -->
+        <script type="text/javascript" src="src/home/home.controller.js"></script>        
+    </head>
+    
+    <body ng-app="iBeaconApp">
+        <ion-pane ui-view></ion-pane>
+    </body>
+
+</html>

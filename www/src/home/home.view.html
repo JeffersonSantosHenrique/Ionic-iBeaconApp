@@ -1,0 +1,68 @@
+<ion-view view-title="Video App">
+
+	<ion-header-bar class="bar-stable bar bar-header disable-user-behavior">                        
+        <h1 class="title">iBeacon</h1>    
+    </ion-header-bar>
+
+	<ion-content>
+		
+		<ion-list>
+			
+			<ion-item class="item-divider">
+				Authorization
+			</ion-item>
+			<ion-item>
+				<button class="button button-full button-positive" ng-click="requestAlwaysAuthorization()">requestAlwaysAuthorization </button>
+			</ion-item>
+			<ion-item class="item-divider">
+				Settings
+			</ion-item>
+
+			<ion-toggle ng-model="monitoringForRegion.checked" ng-checked="monitoringForRegion.checked" ng-change="onChangeMonitoringForRegion()">
+                Monitoring For Region
+    		</ion-toggle>
+
+			<ion-item class="item-divider">				
+			</ion-item>
+			<ion-item>
+				<button class="button button-full button-positive" ng-click="clearLogs()">Clear Logs</button>
+			</ion-item>	
+
+			<ion-item class="item-divider">
+				Beacons
+			</ion-item>
+
+			<div ng-if="beacons != {}">
+				<ion-item ng-repeat="b in beacons">	
+					<p><b>UUID:</b> {{ b.uuid }}</p>
+					<p><b>Accuracy:</b> {{ b.accuracy }}</p>
+					<p><b>Major:</b> {{ b.major }}</p>
+					<p><b>Minor:</b> {{ b.minor }}</p>
+					<p><b>Proximity:</b> {{ b.proximity }}</p>
+					<p><b>RSSI:</b> {{ b.rssi }}</p>
+					<p><b>tx</b>: {{ b.tx }}</p>
+				</ion-item>	
+			</div>
+			<div ng-if="beacons === {}">
+				<ion-item>	
+					Não foram localizados beacons
+				</ion-item>
+			</div>
+
+			<ion-item class="item-divider">
+				Logs
+			</ion-item>
+			<ion-item>
+				<p class="force-wrap"><b>didChangeAuthorizationStatusLog:</b> {{ didChangeAuthorizationStatusLog }}</p>
+				<p class="force-wrap"><b>didStartMonitoringForRegionLog:</b> {{ didStartMonitoringForRegionLog }}</p>
+				<p class="force-wrap"><b>didDetermineStateForRegionLog:</b> {{ didDetermineStateForRegionLog }}</p>
+				<p class="force-wrap"><b>peripheralManagerDidStartAdvertisingLog:</b> {{ peripheralManagerDidStartAdvertisingLog }}</p>
+				<p class="force-wrap"><b>peripheralManagerDidUpdateStateLog:</b> {{ peripheralManagerDidUpdateStateLog }}</p>
+				<p class="force-wrap"><b>didRangeBeaconsInRegionLog:</b> {{ didRangeBeaconsInRegionLog }}</p>
+			</ion-item>	
+
+		</ion-list>
+
+	</ion-content>
+	
+</ion-view>
